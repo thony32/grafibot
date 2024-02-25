@@ -1,8 +1,6 @@
-node_modules
-bun*
-pnpm*
-yarn*
-npm*
-build
-dist
 .env
+.env.bat
+__pycache__/
+ngrok
+ngrok.exe
+_db.json
