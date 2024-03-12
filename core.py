@@ -69,3 +69,84 @@ def catalog_subscription(sender_id, cmd, **ext):
     
     chat.send_text(sender_id, "Voici les abonnements disponibles")
     chat.send_generic_template(sender_id, list_items, next=True)
+
+# SECTION Outils Numériques
+@ampalibe.command('/numeric_tools')
+def numeric_tools(sender_id, cmd, **ext):
+    chat.send_action(sender_id, Action.mark_seen)
+    chat.send_action(sender_id, Action.typing_on)
+    chat.send_action(sender_id, Action.typing_off)
+    # Ici, ajoutez votre code pour lister les outils numériques
+    # ...
+
+# SECTION Streaming
+@ampalibe.command('/streaming')
+def streaming(sender_id, cmd, **ext):
+    chat.send_action(sender_id, Action.mark_seen)
+    chat.send_action(sender_id, Action.typing_on)
+    chat.send_action(sender_id, Action.typing_off)
+    # Ici, ajoutez votre code pour lister les options de streaming
+    # ...
+
+# SECTION Jeux Vidéos
+@ampalibe.command('/games')
+def games(sender_id, cmd, **ext):
+    chat.send_action(sender_id, Action.mark_seen)
+    chat.send_action(sender_id, Action.typing_on)
+    chat.send_action(sender_id, Action.typing_off)
+    # Ici, ajoutez votre code pour lister les jeux vidéos
+    # ...
+
+# SECTION Promotion
+@ampalibe.command('/promotion')
+def promotion(sender_id, cmd, **ext):
+    chat.send_action(sender_id, Action.mark_seen)
+    chat.send_action(sender_id, Action.typing_on)
+    chat.send_action(sender_id, Action.typing_off)
+    # Ici, ajoutez votre code pour afficher les promotions
+    chat.send_text(sender_id, "Voici nos meilleures offres en promotions:")
+    # ...
+
+# SECTION Assistance
+@ampalibe.command('/assistance')
+def assistance(sender_id, cmd, **ext):
+    chat.send_action(sender_id, Action.mark_seen)
+    chat.send_action(sender_id, Action.typing_on)
+    chat.send_action(sender_id, Action.typing_off)
+    quick_replies = [
+        QuickReply(title="Réclamation", payload=Payload("/claim")),
+        QuickReply(title="Suivi de commande", payload=Payload("/order_followup")),
+        QuickReply(title="Demande spécifique", payload=Payload("/specific_request"))
+    ]
+    chat.send_quick_reply(sender_id, quick_replies, "Comment puis-je vous assister?")
+    # ...
+
+# SECTION Réclamation
+@ampalibe.command('/claim')
+def claim(sender_id, cmd, **ext):
+    chat.send_action(sender_id, Action.mark_seen)
+    chat.send_action(sender_id, Action.typing_on)
+    chat.send_action(sender_id, Action.typing_off)
+    chat.send_text(sender_id, "Donnez le plus de détails possible à propos de votre réclamation.")
+    # Définissez ici l'action pour capturer les détails de la réclamation de l'utilisateur
+    # ...
+
+# SECTION Suivi de commande
+@ampalibe.command('/order_followup')
+def order_followup(sender_id, cmd, **ext):
+    chat.send_action(sender_id, Action.mark_seen)
+    chat.send_action(sender_id, Action.typing_on)
+    chat.send_action(sender_id, Action.typing_off)
+    chat.send_text(sender_id, "Veuillez saisir la référence de votre commande/facture.")
+    # Définissez ici l'action pour capturer la référence de commande de l'utilisateur
+    # ...
+
+# SECTION Demande spécifique
+@ampalibe.command('/specific_request')
+def specific_request(sender_id, cmd, **ext):
+    chat.send_action(sender_id, Action.mark_seen)
+    chat.send_action(sender_id, Action.typing_on)
+    chat.send_action(sender_id, Action.typing_off)
+    chat.send_text(sender_id, "Posez-nous votre question, notre équipe vous répondra dès que possible.")
+    # Définissez ici l'action pour capturer la question spécifique de l'utilisateur
+    # ...
